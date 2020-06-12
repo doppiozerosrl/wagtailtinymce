@@ -47,7 +47,6 @@ function registerMCETool(name) {
 }
 
 function makeTinyMCEEditable(id, kwargs) {
-
     kwargs = kwargs || {};
     $.extend(kwargs, {
         selector: '#' + id.toString(),

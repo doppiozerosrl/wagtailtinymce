@@ -56,7 +56,9 @@ def to_js_primitive(string):
 @hooks.register('insert_editor_css')
 def insert_editor_css():
     css_files = [
-        'wagtailtinymce/css/icons.css'
+        'wagtailtinymce/css/icons.css',
+        'wagtailtinymce/js/vendor/tinymce/skins/lightgray/skin.min.css',
+        'wagtailtinymce/js/vendor/tinymce/skins/lightgray/content.min.css',
     ]
     css_includes = format_html_join(
         '\n',
@@ -85,12 +87,19 @@ def insert_editor_js():
         '    window.tinymce.suffix = "";'
         '}}());'
         '</script>',
-        to_js_primitive(static('wagtailtinymce/js/vendor/tinymce')),
+        to_js_primitive(static('wagtailtinymce/js/vendor/tinymce/tinymce.min.js').rsplit('/', 1)[0]),
     )
     js_includes = _format_js_includes([
         'wagtailtinymce/js/vendor/tinymce/jquery.tinymce.min.js',
         'wagtailtinymce/js/vendor/tinymce/tinymce.min.js',
         'wagtailtinymce/js/tinymce-editor.js',
+        # 'wagtailtinymce/js/vendor/tinymce/themes/modern/theme.js',
+        # 'wagtailtinymce/js/vendor/tinymce/plugins/hr/plugin.js',
+        # 'wagtailtinymce/js/vendor/tinymce/plugins/code/plugin.js',
+        # 'wagtailtinymce/js/vendor/tinymce/plugins/fullscreen/plugin.js',
+        # 'wagtailtinymce/js/vendor/tinymce/plugins/noneditable/plugin.js',
+        # 'wagtailtinymce/js/vendor/tinymce/plugins/paste/plugin.js',
+        # 'wagtailtinymce/js/vendor/tinymce/plugins/table/plugin.js',
     ])
     return preload + js_includes + hook_output('insert_tinymce_js')
 

@@ -1,5 +1,5 @@
-wagtail
-Django
+wagtail==2.7.3
+Django==2.2.13
 
 # For translations
 polib
