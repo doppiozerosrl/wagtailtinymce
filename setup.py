@@ -40,7 +40,7 @@ def read(filename):
 
 
 install_requires = [
-    'wagtail>=2.6',
+    'wagtail>=2.7,<2.8',
 ]
 
 setup(
@@ -53,8 +53,9 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     license='New BSD',
-    long_description='\n\n'.join([read('README.rst'), read('CHANGELOG.rst'),
-                                  read('LICENSE.rst')]),
+    long_description='\n\n'.join(
+        [read('README.rst'), read('CHANGELOG.rst'), read('LICENSE.rst')]
+    ),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
@@ -62,15 +63,9 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.8',
         'Framework :: Django',
-        'Framework :: Django :: 1.8',
-        'Framework :: Django :: 1.9',
+        'Framework :: Django :: 2.2',
         'Topic :: Internet :: WWW/HTTP :: Site Management',
     ],
     install_requires=install_requires,
