@@ -44,7 +44,7 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
                     ['formatselect'],
                     ['bold', 'italic', 'strikethrough', 'blockquote', 'forecolor', 'backcolor'],
                     ['alignleft', 'aligncenter', 'alignright', 'alignjustify'],
-                    ['bullist', 'numlist', 'outdent', 'indent'],
+                    ['bullist', 'numlist'],
                     ['table'],
                     ['link', 'unlink'],
                     ['wagtaildoclink', 'wagtailimage', 'wagtailembed'],
