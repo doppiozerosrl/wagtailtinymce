@@ -26,13 +26,11 @@
 from __future__ import absolute_import, unicode_literals
 
 import json
-
 from django.conf import settings
 from django.forms import widgets
 from django.utils import translation
-from wagtail.utils.widgets import WidgetWithScript
-
 from wagtail import __version__ as WAGTAIL_VERSION
+from wagtail.utils.widgets import WidgetWithScript
 
 if WAGTAIL_VERSION >= '2.0':
     from wagtail.admin.edit_handlers import RichTextFieldPanel
@@ -96,6 +94,7 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
                 translated_value = self.converter.from_database_format(value)
             else:
                 translated_value = expand_db_html(value, for_editor=True)
+
         return super(TinyMCERichTextArea, self).render(name, translated_value, attrs, renderer)
 
     def render_js_init(self, id_, name, value):
@@ -131,6 +130,7 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
         original_value = super(TinyMCERichTextArea, self).value_from_datadict(data, files, name)
         if original_value is None:
             return None
+
         if WAGTAIL_VERSION >= '2.0':
             return self.converter.to_database_format(original_value)
         else:

@@ -92,14 +92,7 @@ def insert_editor_js():
     js_includes = _format_js_includes([
         'wagtailtinymce/js/vendor/tinymce/jquery.tinymce.min.js',
         'wagtailtinymce/js/vendor/tinymce/tinymce.min.js',
-        'wagtailtinymce/js/tinymce-editor.js',
-        # 'wagtailtinymce/js/vendor/tinymce/themes/modern/theme.js',
-        # 'wagtailtinymce/js/vendor/tinymce/plugins/hr/plugin.js',
-        # 'wagtailtinymce/js/vendor/tinymce/plugins/code/plugin.js',
-        # 'wagtailtinymce/js/vendor/tinymce/plugins/fullscreen/plugin.js',
-        # 'wagtailtinymce/js/vendor/tinymce/plugins/noneditable/plugin.js',
-        # 'wagtailtinymce/js/vendor/tinymce/plugins/paste/plugin.js',
-        # 'wagtailtinymce/js/vendor/tinymce/plugins/table/plugin.js',
+        'wagtailtinymce/js/tinymce-editor.js'
     ])
     return preload + js_includes + hook_output('insert_tinymce_js')
 
@@ -122,6 +115,7 @@ def images_richtexteditor_js():
         'wagtailimages/js/image-chooser.js'
     ])
     return preload + js_includes
+
 
 @hooks.register('insert_tinymce_js')
 def embeds_richtexteditor_js():
