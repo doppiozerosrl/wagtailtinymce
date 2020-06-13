@@ -41,21 +41,22 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
             'buttons': [
                 [
                     ['undo', 'redo'],
-                    ['styleselect'],
-                    ['bold', 'italic'],
+                    ['formatselect'],
+                    ['bold', 'italic', 'strikethrough', 'blockquote', 'forecolor', 'backcolor'],
+                    ['alignleft', 'aligncenter', 'alignright', 'alignjustify'],
                     ['bullist', 'numlist', 'outdent', 'indent'],
                     ['table'],
                     ['link', 'unlink'],
                     ['wagtaildoclink', 'wagtailimage', 'wagtailembed'],
                     ['pastetext', 'fullscreen'],
+                    ['code']
                 ]
             ],
             'menus': False,
             'options': {
                 'browser_spellcheck': True,
                 'noneditable_leave_contenteditable': True,
-                'language': translation.to_locale(
-                    translation.get_language() or settings.LANGUAGE_CODE),
+                'language': translation.to_locale(translation.get_language() or settings.LANGUAGE_CODE),
                 'language_load': True,
             },
         }
