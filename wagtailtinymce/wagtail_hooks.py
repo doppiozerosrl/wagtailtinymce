@@ -59,12 +59,12 @@ def apply_whitelist(features):
 
     # text
     features.register_converter_rule('editorhtml', 'span', [
-        WhitelistRule('span', attribute_rule({'style': True})),
+        WhitelistRule('span', attribute_rule({'style': True, 'class': True})),
     ])
     features.default_features.append('span')
 
     features.register_converter_rule('editorhtml', 'blockquote', [
-        WhitelistRule('blockquote', attribute_rule({'style': True})),
+        WhitelistRule('blockquote', attribute_rule({'style': True, 'class': True})),
     ])
     features.default_features.append('blockquote')
 

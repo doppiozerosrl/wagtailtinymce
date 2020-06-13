@@ -27,7 +27,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 'use strict';
 
-var mcePlugins = ['hr', 'textcolor', 'code', 'fullscreen', 'noneditable', 'paste', 'table', 'wordcount', 'lists'],
+var mcePlugins = [
+        'hr', 'textcolor', 'code', 'fullscreen', 'noneditable', 'paste', 'table', 'wordcount', 'lists', 'autoresize'
+    ],
     mceTools = ['inserttable'],
     mceExternalPlugins = {};
 
@@ -54,9 +56,22 @@ function makeTinyMCEEditable(id, kwargs) {
         tools: mceTools,
         external_plugins: mceExternalPlugins,
         branding: false,
+        formats: {
+            'blockquote': {block: 'blockquote', classes: 'blockquote', wrapper: true}
+        },
         setup: function (editor) {
             editor.on('change', function () {
                 editor.save();
+            });
+
+            editor.addButton('highlight', {
+                image: 'https://junatum.com/img/highlighter.png',
+                tooltip: 'Highlight',
+                onclick: function () {
+                    var ed = tinyMCE.activeEditor;
+                    var content = ed.selection.getContent({'format': 'html'});
+                    ed.execCommand('insertHTML', false, '<span class="keyPoint">' + content + '</span>');
+                }
             });
         }
     });
