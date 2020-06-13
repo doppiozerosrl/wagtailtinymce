@@ -42,9 +42,10 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
                 [
                     ['undo', 'redo'],
                     ['formatselect'],
-                    ['bold', 'italic', 'strikethrough', 'blockquote', 'forecolor', 'backcolor'],
-                    ['alignleft', 'aligncenter', 'alignright', 'alignjustify'],
+                    ['bold', 'italic', 'strikethrough', 'blockquote', 'hr'],
+                    ['forecolor', 'backcolor'],
                     ['bullist', 'numlist'],
+                    ['alignleft', 'aligncenter', 'alignright', 'alignjustify'],
                     ['table'],
                     ['link', 'unlink'],
                     ['wagtaildoclink', 'wagtailimage', 'wagtailembed'],
