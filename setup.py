@@ -40,7 +40,7 @@ def read(filename):
 
 
 install_requires = [
-    'wagtail>=2.7,<2.8',
+    'wagtail>=2.7',
 ]
 
 setup(
