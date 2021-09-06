@@ -37,30 +37,31 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
 
     @classmethod
     def getDefaultArgs(cls):
-        return {
-            'buttons': [
-                [
-                    ['undo', 'redo'],
-                    ['formatselect'],
-                    ['bold', 'italic', 'strikethrough', 'highlight', 'blockquote', 'hr'],
-                    ['forecolor', 'backcolor'],
-                    ['bullist', 'numlist'],
-                    ['alignleft', 'aligncenter', 'alignright', 'alignjustify'],
-                    ['table'],
-                    ['link', 'unlink'],
-                    ['wagtaildoclink', 'wagtailimage', 'wagtailembed'],
-                    ['pastetext', 'fullscreen'],
-                    ['code']
-                ]
-            ],
-            'menus': False,
-            'options': {
-                'browser_spellcheck': True,
-                'noneditable_leave_contenteditable': True,
-                'language': translation.to_locale(translation.get_language() or settings.LANGUAGE_CODE),
-                'language_load': True,
-            },
-        }
+        return getattr(settings, 'WAGTAIL_TINYMCE_CONFIG',
+                        {
+                        'buttons': [
+                            [
+                                ['undo', 'redo'],
+                                ['formatselect'],
+                                ['bold', 'italic', 'strikethrough', 'highlight', 'blockquote', 'hr'],
+                                ['forecolor', 'backcolor'],
+                                ['bullist', 'numlist'],
+                                ['alignleft', 'aligncenter', 'alignright', 'alignjustify'],
+                                ['table'],
+                                ['link', 'unlink'],
+                                ['wagtaildoclink', 'wagtailimage', 'wagtailembed'],
+                                ['pastetext', 'fullscreen'],
+                                ['code']
+                            ]
+                        ],
+                        'menus': False,
+                        'options': {
+                            'browser_spellcheck': True,
+                            'noneditable_leave_contenteditable': True,
+                            'language': translation.to_locale(translation.get_language() or settings.LANGUAGE_CODE),
+                            'language_load': True,
+                        },
+                    })
 
     def __init__(self, attrs=None, **kwargs):
         super(TinyMCERichTextArea, self).__init__(attrs)
