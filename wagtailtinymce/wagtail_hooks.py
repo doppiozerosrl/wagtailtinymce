@@ -68,6 +68,51 @@ def apply_whitelist(features):
     ])
     features.default_features.append('blockquote')
 
+@hooks.register('construct_whitelister_element_rules')
+def whitelister_element_rules():
+    common = {
+        'style': True,
+        'width': True,
+        'margin-left': True,
+        'margin-right': True,
+        'height': True,
+        'border-color': True,
+        'text-align': True,
+        'background-color': True,
+        'vertical-align': True,
+        'font-family': True,
+        'valign': True,
+    }
+
+    table_rule = attribute_rule(dict(common, **{
+        'border': True,
+        'cellpadding': True,
+        'cellspacing': True,
+    }))
+    row_rule = attribute_rule(common)
+    cell_rule = attribute_rule(dict(common, **{
+        'colspan': True,
+        'scope': True,
+        'rowspan': True,
+    }))
+
+    return {
+        'blockquote': allow_without_attributes,
+        'pre': allow_without_attributes,
+        'span': allow_without_attributes,
+        'code': allow_without_attributes,
+
+        'table': table_rule,
+        'thead': allow_without_attributes,
+        'tfoot': allow_without_attributes,
+        'tbody': allow_without_attributes,
+        'colgroup': allow_without_attributes,
+        'col': allow_without_attributes,
+        'caption': allow_without_attributes,
+        'tr': row_rule,
+        'th': cell_rule,
+        'td': cell_rule,
+    }
 
 @hooks.register('insert_editor_css')
 def insert_editor_css():
