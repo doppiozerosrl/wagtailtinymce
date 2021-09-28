@@ -72,6 +72,11 @@ def apply_whitelist(features):
         WhitelistRule('div', attribute_rule({'style': True, 'class': True, 'id': True})),
     ])
     features.default_features.append('div')
+    
+    features.register_converter_rule('editorhtml', 'p', [
+        WhitelistRule('p', attribute_rule({'style': True, 'class': True, 'id': True})),
+    ])
+    features.default_features.append('p')
 
 @hooks.register('construct_whitelister_element_rules')
 def whitelister_element_rules():
@@ -124,6 +129,7 @@ def whitelister_element_rules():
         'span': div_rule,
         'code': allow_without_attributes,
         'div': div_rule,
+        'p': div_rule,
         'table': table_rule,
         'thead': allow_without_attributes,
         'tfoot': allow_without_attributes,
