@@ -75,9 +75,9 @@ class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
 
         if self.features is None:
             self.features = features.get_default_features()
-            self.converter = EditorHTMLConverter()
+            self.converter = MyEditorHTMLConverter()
         else:
-            self.converter = EditorHTMLConverter(self.features)
+            self.converter = MyEditorHTMLConverter(self.features)
 
     def get_panel(self):
         return RichTextFieldPanel
