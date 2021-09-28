@@ -47,7 +47,7 @@ def apply_whitelist(features):
     # table
     cell_attributes = attribute_rule({'rowspan': True, 'colspan': True, 'width': True, 'height': True, 'style': True})
     features.register_converter_rule('editorhtml', 'table', [
-        WhitelistRule('table', attribute_rule({'style': True, 'border': True})),
+        WhitelistRule('table', attribute_rule({'style': True, 'border': True, 'id': True, 'class': True})),
         WhitelistRule('thead', allow_without_attributes),
         WhitelistRule('tbody', allow_without_attributes),
         WhitelistRule('tfoot', allow_without_attributes),
@@ -68,9 +68,16 @@ def apply_whitelist(features):
     ])
     features.default_features.append('blockquote')
 
+    features.register_converter_rule('editorhtml', 'div', [
+        WhitelistRule('div', attribute_rule({'style': True, 'class': True, 'id': True})),
+    ])
+    features.default_features.append('div')
+
 @hooks.register('construct_whitelister_element_rules')
 def whitelister_element_rules():
     common = {
+        'id': True,
+        'class': True,
         'style': True,
         'width': True,
         'margin-left': True,
