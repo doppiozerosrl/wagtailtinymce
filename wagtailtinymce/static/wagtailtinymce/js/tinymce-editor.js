@@ -56,6 +56,7 @@ function makeTinyMCEEditable(id, kwargs) {
         plugins: mcePlugins,
         tools: mceTools,
         external_plugins: mceExternalPlugins,
+        extended_valid_elements: 'span',
         branding: false,
         formats: {
             'blockquote': {block: 'blockquote', classes: 'blockquote', wrapper: true}
