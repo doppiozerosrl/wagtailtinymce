@@ -103,12 +103,27 @@ def whitelister_element_rules():
         'rowspan': True,
     }))
 
+    div_rule = attribute_rule({
+        'id': True,
+        'class': True,
+        'style': True,
+        'width': True,
+        'margin-left': True,
+        'margin-right': True,
+        'height': True,
+        'border-color': True,
+        'text-align': True,
+        'background-color': True,
+        'vertical-align': True,
+        'font-family': True,
+    })
+
     return {
         'blockquote': allow_without_attributes,
         'pre': allow_without_attributes,
         'span': allow_without_attributes,
         'code': allow_without_attributes,
-
+        'div': div_rule,
         'table': table_rule,
         'thead': allow_without_attributes,
         'tfoot': allow_without_attributes,
