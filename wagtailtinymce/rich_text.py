@@ -32,6 +32,9 @@ from wagtail.admin.rich_text.converters.editor_html import EditorHTMLConverter
 from wagtail.core.rich_text import features
 from wagtail.utils.widgets import WidgetWithScript
 
+class MyEditorHTMLConverter(EditorHTMLConverter):
+     def to_database_format(self, html):
+        return html
 
 class TinyMCERichTextArea(WidgetWithScript, widgets.Textarea):
 
