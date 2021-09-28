@@ -121,7 +121,7 @@ def whitelister_element_rules():
     return {
         'blockquote': allow_without_attributes,
         'pre': allow_without_attributes,
-        'span': allow_without_attributes,
+        'span': div_rule,
         'code': allow_without_attributes,
         'div': div_rule,
         'table': table_rule,
