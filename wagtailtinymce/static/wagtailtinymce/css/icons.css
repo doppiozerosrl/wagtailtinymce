@@ -19,3 +19,21 @@
 .mce-i-doc-full:before {
     content: "\e018";
 }
+
+.mce-i-pick:before, .mce-i-pick:after {
+    font-family: "wagtail";
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none !important;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align:left;
+}
+.mce-i-pick:after {
+    text-align:right;
+}
+.mce-i-pick:before {
+    content: "\e03d";
+}

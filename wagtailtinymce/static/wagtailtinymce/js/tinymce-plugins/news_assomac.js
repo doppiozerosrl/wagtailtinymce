@@ -110,33 +110,18 @@
                 });
             }
 
-            editor.addButton('link', {
-                icon: 'link',
-                tooltip: 'Insert/edit link',
-                shortcut: 'Meta+K',
-                onclick: showDialog,
-                stateSelector: 'a[data-linktype=page],a[href]:not([data-linktype])'
-            });
-
-            editor.addButton('unlink', {
-                icon: 'unlink',
-                tooltip: 'Remove link',
-                cmd: 'unlink',
-                stateSelector: 'a[data-linktype=page],a[href]'
-            });
-
-            editor.addMenuItem('link', {
-                icon: 'link',
-                text: 'Insert/edit link',
-                shortcut: 'Meta+K',
+            editor.addMenuItem('news_assomac', {
+                icon: 'pick',
+                text: 'Insert/edit News',
+                shortcut: 'Meta+Y',
                 onclick: showDialog,
                 stateSelector: 'a[data-linktype=page],a[href]:not([data-linktype])',
                 context: 'insert',
                 prependToContext: true
             });
 
-            editor.addShortcut('Meta+K', '', showDialog);
-            editor.addCommand('mceLink', showDialog);
+            editor.addShortcut('Meta+Y', '', showDialog);
+            editor.addCommand('mceNewsAssomac', showDialog);
         });
     })(jQuery);
 
