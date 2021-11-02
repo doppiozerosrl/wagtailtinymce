@@ -257,3 +257,16 @@ def docs_richtexteditor_js():
         'wagtaildocs/js/document-chooser-modal.js',
     ])
     return preload + js_includes
+
+@hooks.register('insert_tinymce_js')
+def news_assomac_richtexteditor_js():
+    preload = format_html(
+        """
+        <script>
+            registerMCEPlugin("news_assomac", {}, {});
+        </script>
+        """,
+        to_js_primitive(static('wagtailtinymce/js/tinymce-plugins/news_assomac.js')),
+        to_js_primitive(translation.to_locale(translation.get_language())),
+    )
+    return preload
