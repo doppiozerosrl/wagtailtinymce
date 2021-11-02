@@ -110,6 +110,13 @@
                 });
             }
 
+            editor.addButton('news_assomac', {
+                icon: 'pick',
+                tooltip: 'Insert/edit News',
+                onclick: showDialog,
+                stateSelector: 'a[data-linktype=page]'
+            });
+
             editor.addMenuItem('news_assomac', {
                 icon: 'pick',
                 text: 'Insert/edit News',
