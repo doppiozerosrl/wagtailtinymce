@@ -30,11 +30,12 @@
             function showDialog() {
                 var url, urlParams, mceSelection, $currentNode, $targetNode, currentText, insertElement;
 
-                currentText = '';
+                currentText = '/admin/news-chooser/';
+                // url = window.chooserUrls.pageChooser;
                 url = window.chooserUrls.pageChooser;
                 urlParams = {
-                    'allow_external_link': true,
-                    'allow_email_link': true
+                    'allow_external_link': false,
+                    'allow_email_link': false
                 };
 
                 mceSelection = editor.selection;
@@ -47,18 +48,7 @@
                     var linkType = $targetNode.data('linktype');
                     var parentPageId = $targetNode.data('parent-id');
                     var href = $targetNode.attr('href');
-                    if (linkType == 'page' && parentPageId) {
-                        url = window.chooserUrls.pageChooser + parentPageId.toString() + '/';
-                    }
-                    else if (href.startsWith('mailto:')) {
-                        url = window.chooserUrls.emailLinkChooser;
-                        href = href.replace('mailto:', '');
-                        urlParams['link_url'] = href;
-                    }
-                    else if (!linkType) {
-                        url = window.chooserUrls.externalLinkChooser;
-                        urlParams['link_url'] = href;
-                    }
+                    url = window.chooserUrls.pageChooser + parentPageId.toString() + '/';
                     if( $targetNode.children().length == 0 )
                     {
                         // select and replace text-only target
