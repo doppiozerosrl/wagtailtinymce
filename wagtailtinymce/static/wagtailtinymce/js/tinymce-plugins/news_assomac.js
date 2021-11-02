@@ -30,9 +30,9 @@
             function showDialog() {
                 var url, urlParams, mceSelection, $currentNode, $targetNode, currentText, insertElement;
 
-                currentText = '/admin/news-chooser/';
+                currentText = '';
                 // url = window.chooserUrls.pageChooser;
-                url = window.chooserUrls.pageChooser;
+                url = '/admin/news-chooser/';
                 urlParams = {
                     'allow_external_link': false,
                     'allow_email_link': false
